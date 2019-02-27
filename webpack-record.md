@@ -44,3 +44,12 @@ cnpm install style-loader css-loader less-loader sass-loader node-sass less --sa
     - loader 类型：前置pre,普通，内联，后置post;
 ```
 ```
+## es6 语法
+- 安装开发依赖 babel-loader @babel/core @babel/preset-env @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties @babel/plugin-transform-runtime
+```
+cnpm install babel-loader @babel/core @babel/preset-env @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties @babel/plugin-transform-runtime --save-dev
+```
+- 安装依赖 @babel/runtime @babel/polyfill
+```
+cnpm install @babel/runtime @babel/polyfill --save
+```

@@ -18,6 +18,25 @@ module.exports={
     module:{
         rules:[
             {
+                test:/\.js$/,
+                exclude:/mode_modules/,
+                include:path.resolve(ROOT_PATH,"src"),
+                use:{
+                        loader:"babel-loader",
+                        options:{
+                            presets:['@babel/preset-env'],
+                            plugins:[
+                                ["@babel/plugin-proposal-decorators", { "legacy": true }],
+                                ["@babel/plugin-proposal-class-properties", { "loose" : true }],
+                                "@babel/plugin-transform-runtime"
+                            ]
+                        }
+                      
+                    }
+                  
+                
+            },
+            {
                 test:/\.css$/,
                 use:[
                     {loader:"style-loader"},
