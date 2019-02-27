@@ -34,9 +34,17 @@ module.exports={
               
             }]
         }),
-        new HtmlWebpackPlugin({
+          new HtmlWebpackPlugin({
             template:path.resolve(ROOT_PATH,"src/public/template/index.html"),
-            filename:"index.html"
+            filename:"index.html",
+           inject:true,
+            hash: true, //是否添加hash值
+            minify: { //压缩HTML文件
+                removeComments: true,//移除HTML中的注释
+                collapseWhitespace: true ,//删除空白符与换行符
+                removeAttributeQuotes:true
+            },
+            chunks:['index']
         }),
         new webpack.BannerPlugin('by feng lin')
         // ,new webpack.IgnorePlugin() // 忽略编译
