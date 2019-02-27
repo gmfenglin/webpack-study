@@ -51,7 +51,7 @@ module.exports={
         }),
         new webpack.BannerPlugin('by feng lin')
         // ,new webpack.IgnorePlugin() // 忽略编译
-        // ,new webpack.DllPlugin({manifest:path.resolve(ROOT_PATH,"dist","manifest.json")}) // dll 动态连接库
+        // ,new webpack.DllReferencePlugin({manifest:path.resolve(ROOT_PATH,"dist","manifest.json")}) // dll 动态连接库
     ],
     module:{
         // noParse:/jquery/, // 不解析jquery模块的依赖关系
