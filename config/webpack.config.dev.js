@@ -2,6 +2,8 @@ const webpackMerge=require("webpack-merge");
 const baseConfig=require("./webpack.config.base.js");
 const path=require("path");
 const ROOT_PATH=path.resolve(__dirname,"../");
+const apiMocker = require('webpack-api-mocker');
+const mocker = path.resolve(ROOT_PATH, './mock/index.js');
 const webpack=require("webpack");
 module.exports=webpackMerge(baseConfig,{
     mode:"development",
