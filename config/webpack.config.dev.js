@@ -22,5 +22,36 @@ module.exports=webpackMerge(baseConfig,{
     plugins:[
       //  new webpack.HotModuleReplacementPlugin(), // 热更新
       //  new webpack.NamedModulesPlugin() // 热更新
-    ]
+    ],
+	 module:{
+        rules:[
+            
+            {
+                test:/\.css$/,
+                use:[
+                    {loader:"style-loader"},
+                    {loader:"css-loader"},
+					{loader:"postcss-loader"},
+                ]
+            },
+            {
+                test:/\.scss$/,
+                use:[
+                    {loader:"style-loader"},
+                    {loader:"css-loader"},
+                    {loader:"postcss-loader"},
+                    {loader:"sass-loader"}
+                ]
+            },
+            {
+                test:/\.less$/,
+                use:[
+                    {loader:"style-loader"},
+                    {loader:"css-loader"},
+                    {loader:"postcss-loader"},
+                    {loader:"less-loader"}
+                ]
+            }
+        ]
+    }
 });

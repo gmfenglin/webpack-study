@@ -9,7 +9,7 @@ module.exports={
     output:{
         filename:'_dll_[name].js',
         path:path.resolve(ROOT_PATH,"dist"),
-
+		library:'_dll_[name]'
     },
     plugins:[
         new webpack.DllPlugin({

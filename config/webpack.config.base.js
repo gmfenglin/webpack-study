@@ -3,21 +3,22 @@ const ROOT_PATH=path.resolve(__dirname,"../");
 const HtmlWebpackPlugin=require("html-webpack-plugin");
 const webpack=require("webpack");
 const HappyPack=require("happypack");
-const MiniCssExtractPlugin=require("mini-css-extract-plugin");
+
 const CleanWebpackPlugin=require("clean-webpack-plugin");
+const CopyWebpackPlugin=require("copy-webpack-plugin");
 module.exports={
     entry:{
         index:path.resolve(ROOT_PATH,"src/index.js")
     },
     output:{
-        filename:'[name]-[hash].js',
+        filename:'[name]_[hash:8].js',
         path:path.resolve(ROOT_PATH,"dist")
     },
     plugins:[
         new CleanWebpackPlugin(path.resolve(ROOT_PATH,"dist")),
-        new MiniCssExtractPlugin({
-            filename:"/css/[name]_[hash].css"
-        }),
+		new CopyWebpackPlugin([
+            {from:path.resolve(ROOT_PATH,"src/public/static"),to:"./"}
+        ]),
         new HappyPack({
             id:"js",
             use:[{
@@ -50,13 +51,15 @@ module.exports={
             },
             {
                 test:/\.(png|jpg|gif)$/,
-                use:{
-                    loader:"url-loader",
-                    options:{
-                        limit:200*1024,
-                        outputPath:"/img/"
-                    }
-                }
+                use:[{
+                        loader:"url-loader",
+                        options:{
+                            limit:200*1024,
+                            outputPath:"/img/"
+                        }
+                    },
+                    'image-webpack-loader'//图片压缩工具
+                ]
             },
             {
                 test:/\.js$/,
@@ -70,8 +73,8 @@ module.exports={
                 test:/\.css$/,
                 use:[
                     {loader:MiniCssExtractPlugin.loader},
-                    {loader:"postcss-loader"},
-                    {loader:"css-loader"}
+                    {loader:"css-loader"},
+					{loader:"postcss-loader"},
                 ]
             },
             {

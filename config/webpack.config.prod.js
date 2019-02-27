@@ -2,8 +2,8 @@ const webpackMerge=require("webpack-merge");
 const baseConfig=require("./webpack.config.base.js");
 const path=require("path");
 const ROOT_PATH=path.resolve(__dirname,"../");
+const MiniCssExtractPlugin=require("mini-css-extract-plugin");
 
-const CopyWebpackPlugin=require("copy-webpack-plugin");
 const UglifyJsPlugin=require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin=require("optimize-css-assets-webpack-plugin");
 module.exports=webpackMerge(baseConfig,{
@@ -35,8 +35,38 @@ module.exports=webpackMerge(baseConfig,{
         }
     },
     plugins:[
-        new CopyWebpackPlugin([
-            {from:path.resolve(ROOT_PATH,"src/public/static"),to:"./"}
-        ])
-    ]
+        new MiniCssExtractPlugin({
+            filename:"/css/[name]_[hash:8].css"
+        }) 
+    ],
+	 module:{
+        rules:[
+            {
+                test:/\.css$/,
+                use:[
+                    {loader:MiniCssExtractPlugin.loader},
+                    {loader:"css-loader"},
+					{loader:"postcss-loader"},
+                ]
+            },
+            {
+                test:/\.scss$/,
+                use:[
+                    {loader:MiniCssExtractPlugin.loader},
+                    {loader:"css-loader"},
+                    {loader:"postcss-loader"},
+                    {loader:"sass-loader"}
+                ]
+            },
+            {
+                test:/\.less$/,
+                use:[
+                    {loader:MiniCssExtractPlugin.loader},
+                    {loader:"css-loader"},
+                    {loader:"postcss-loader"},
+                    {loader:"less-loader"}
+                ]
+            }
+        ]
+    }
 });
