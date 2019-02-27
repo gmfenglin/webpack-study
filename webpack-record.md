@@ -29,7 +29,7 @@ cnpm install webpack webpack-cli html-webpack-plugin webpack-dev-server webpack-
 "build":"webpack --config ./config/webpack.config.prod.js"
 ```
 ## 样式处理
-- 安装开发依赖 style-loader css-loader less-loader sass-loader node-sass less
+- 安装开发依赖 style-loader css-loader less-loader sass-loader node-sass less mini-css-extract-plugin postcss-loader autoprefixer optimize-css-assets-webpack-plugin
     - style-loader loader:
         - 作用：把css 插入head;
         - 插入位置；
@@ -40,7 +40,7 @@ cnpm install webpack webpack-cli html-webpack-plugin webpack-dev-server webpack-
     - sass-loader loader:
         - 作用：把sass,scss 转换为css;
 ```
-cnpm install style-loader css-loader less-loader sass-loader node-sass less --save-dev
+cnpm install style-loader css-loader less-loader sass-loader node-sass less mini-css-extract-plugin postcss-loader autoprefixer optimize-css-assets-webpack-plugin --save-dev
 ```
 - loader 配置
     - loader 执行顺序：从右到左，从下到上；
@@ -73,4 +73,13 @@ url-loader内置了file-loader
 - 安装开发依赖 clean-webpack-plugin copy-webpack-plugin
 ```
 cnpm install copy-webpack-plugin clean-webpack-plugin --save-dev
+```
+## 优化
+- 热更新
+```
+if(module.hot){
+    modele.hot.accept("path",()=>{
+        require("path");
+    })
+}
 ```
