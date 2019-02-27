@@ -15,7 +15,10 @@ module.exports={
         path:path.resolve(ROOT_PATH,"dist")
     },
     plugins:[
-        new CleanWebpackPlugin(path.resolve(ROOT_PATH,"dist")),
+        new CleanWebpackPlugin(['dist'],{
+            root:ROOT_PATH
+            // ,exclude:['_dll_react.js','manifest.json']
+        }),
 		new CopyWebpackPlugin([
             {from:path.resolve(ROOT_PATH,"src/public/static"),to:"./"}
         ]),
