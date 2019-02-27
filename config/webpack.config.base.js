@@ -18,6 +18,19 @@ module.exports={
     module:{
         rules:[
             {
+                test:/\.html$/,
+                use:"html-withimg-loader"
+            },
+            {
+                test:/\.(png|jpg|gif)$/,
+                use:{
+                    loader:"url-loader",
+                    options:{
+                        limit:200*1024
+                    }
+                }
+            },
+            {
                 test:/\.js$/,
                 exclude:/mode_modules/,
                 include:path.resolve(ROOT_PATH,"src"),

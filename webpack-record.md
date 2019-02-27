@@ -53,3 +53,16 @@ cnpm install babel-loader @babel/core @babel/preset-env @babel/plugin-proposal-d
 ```
 cnpm install @babel/runtime @babel/polyfill --save
 ```
+## 图片处理
+- 安装开发依赖 file-loader url-loader html-withimg-loader
+url-loader内置了file-loader
+    - file-loader loader:
+        - 作用：默认会生产一张图片到build目录下，返回图片路径；
+    - html-withimg-loader loader:
+        - 作用：检测html中引用的图片；
+    - url-loader loader:
+        - 作用：把指定大小的图片生成base64字符串；
+        - limit
+```
+    cnpm install url-loader html-withimg-loader --save-dev
+```
