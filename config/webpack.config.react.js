@@ -4,7 +4,7 @@ const webpack=require("webpack");
 module.exports={
     mode:"development",
     entry:{
-       react:['react','react-dom'] 
+       react:['react','react-dom',] 
     },
     output:{
         filename:'_dll_[name].js',

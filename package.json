@@ -36,12 +36,14 @@
     "uglifyjs-webpack-plugin": "^2.1.2",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.5",
+    "webpack-api-mocker": "^1.6.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1",
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
-    "@babel/runtime": "^7.3.4"
+    "@babel/runtime": "^7.3.4",
+    "axios": "^0.18.0"
   }
 }

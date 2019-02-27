@@ -9,6 +9,14 @@ module.exports=webpackMerge(baseConfig,{
     devServer:{
         contentBase:path.resolve(ROOT_PATH,"dist"),
         port:8080,
+        before(app) {
+          apiMocker(app, mocker, {
+              proxy: {
+                  '/api/*': 'https://localhost:3721'
+              },
+              changeHost: true
+          });
+      }
        // hot:true // 热更新
     },
     plugins:[
