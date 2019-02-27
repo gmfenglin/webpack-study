@@ -1,1 +1,1 @@
-console.log("ok");
+import './index.scss'
