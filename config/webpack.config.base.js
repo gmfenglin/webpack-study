@@ -1,6 +1,7 @@
 const path=require("path");
 const ROOT_PATH=path.resolve(__dirname,"../");
 const HtmlWebpackPlugin=require("html-webpack-plugin");
+const webpack=require("webpack");
 module.exports={
     entry:{
         index:path.resolve(ROOT_PATH,"src/index.js")
@@ -13,7 +14,8 @@ module.exports={
         new HtmlWebpackPlugin({
             template:path.resolve(ROOT_PATH,"src/public/template/index.html"),
             filename:"index.html"
-        })
+        }),
+        new webpack.BannerPlugin('by feng lin')
     ],
     module:{
         rules:[
@@ -26,7 +28,8 @@ module.exports={
                 use:{
                     loader:"url-loader",
                     options:{
-                        limit:200*1024
+                        limit:200*1024,
+                        outputPath:"/img/"
                     }
                 }
             },

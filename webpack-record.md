@@ -14,7 +14,10 @@
 - 安装开发依赖 webpack webpack-cli html-webpack-plugin webpack-dev-server webpack-merge
     - html-webpack-plugin 插件：
         - 作用：连接js与html;
+        - template;
+        - filename;
         - 去除双引号；
+        - chunks;
         - 去除换行。
 ```
 cnpm install webpack webpack-cli html-webpack-plugin webpack-dev-server webpack-merge --save-dev
@@ -65,4 +68,9 @@ url-loader内置了file-loader
         - limit
 ```
     cnpm install url-loader html-withimg-loader --save-dev
+```
+## 打包
+- 安装开发依赖 clean-webpack-plugin copy-webpack-plugin
+```
+cnpm install copy-webpack-plugin clean-webpack-plugin --save-dev
 ```
