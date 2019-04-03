@@ -81,32 +81,6 @@ module.exports={
                 use:"happypack/loader?id=js"
                   
                 
-            },
-            {
-                test:/\.css$/,
-                use:[
-                    {loader:MiniCssExtractPlugin.loader},
-                    {loader:"css-loader"},
-					{loader:"postcss-loader"},
-                ]
-            },
-            {
-                test:/\.scss$/,
-                use:[
-                    {loader:MiniCssExtractPlugin.loader},
-                    {loader:"css-loader"},
-                    {loader:"postcss-loader"},
-                    {loader:"sass-loader"}
-                ]
-            },
-            {
-                test:/\.less$/,
-                use:[
-                    {loader:MiniCssExtractPlugin.loader},
-                    {loader:"css-loader"},
-                    {loader:"postcss-loader"},
-                    {loader:"less-loader"}
-                ]
             }
         ]
     }
